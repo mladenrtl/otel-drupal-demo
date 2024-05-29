@@ -1,1 +1,0 @@
-# otel-drupal-demo
