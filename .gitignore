@@ -42,3 +42,4 @@ web/sites/simpletest
 # simpletest
 
 .idea
+/web/modules/contrib/
