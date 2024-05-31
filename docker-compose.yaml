@@ -1,0 +1,53 @@
+version: "3"
+
+services:
+
+  tempo:
+    image: grafana/tempo:2.4.2
+    command: [ "-config.file=/etc/tempo.yaml" ]
+    volumes:
+      - ./docker-compose/tempo/config.yaml:/etc/tempo.yaml
+      - ./docker-compose/tempo/tempo-data:/tmp/tempo
+    ports:
+      - "3200:3200"   # tempo
+      - "4317:4317"  # otlp grpc
+      - "4318:4318"  # otlp http
+
+  prometheus:
+    image: prom/prometheus:v2.52.0
+    command:
+      - --config.file=/etc/prometheus.yaml
+      - --web.enable-remote-write-receiver
+      - --enable-feature=exemplar-storage
+    volumes:
+      - ./docker-compose/prometheus/config.yaml:/etc/prometheus.yaml
+    ports:
+      - "9090:9090"
+
+  grafana:
+    image: grafana/grafana:11.0.0
+    volumes:
+      - ./docker-compose/grafana/datasources.yaml:/etc/grafana/provisioning/datasources/datasources.yaml
+    environment:
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
+      - GF_AUTH_DISABLE_LOGIN_FORM=true
+      - GF_FEATURE_TOGGLES_ENABLE=traceqlEditor traceQLStreaming metricsSummary
+    ports:
+      - "3000:3000"
+
+  loki:
+    image: grafana/loki:3.0.0
+    ports:
+      - "3100:3100"
+    command: [ "-config.file=/etc/loki/local-config.yaml" ]
+    volumes:
+      - ./docker-compose/loki/config.yaml:/etc/loki/local-config.yaml
+      - ./docker-compose/loki/data:/tmp/loki
+
+  promtail:
+    image: grafana/promtail:3.0.0
+    command: [ "-config.file=/etc/promtail/promtail-config.yaml" ]
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./docker-compose/promtail/config.yaml:/etc/promtail/promtail-config.yaml
