@@ -12,7 +12,7 @@ query_frontend:
 
 distributor:
   log_received_spans:
-    enabled: false
+    enabled: true
     include_all_attributes: true
     filter_by_status_error: false
   receivers:
