@@ -43,3 +43,54 @@ web/sites/simpletest
 
 .idea
 /web/modules/contrib/
+
+# Ignore .NET build directories
+bin/
+obj/
+*.user
+*.rsuser
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Ignore .NET Core files
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Ignore ASP.NET files
+*.dbmdl
+*.dbproj.schemaview
+*.jfm
+
+# Ignore NUGET packages
+*.nupkg
+*.nuspec
+NuGet.config
+NuGet.exe
+NuGet.targets
+
+# Ignore Rider IDE files
+.idea/
+
+# Ignore Visual Studio Code files
+.vscode/
+
+# Ignore Auto-generated files
+Generated\_Files/
+
+# Ignore package managers
+node_modules/
+dist/
+
+# Ignore logs and database
+*.log
+*.ldf
+*.mdf
+
+# Ignore crash reports
+*.crash
+*.pid
+
+# Ignore coverage reports
+coverage/
