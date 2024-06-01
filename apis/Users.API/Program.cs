@@ -3,6 +3,7 @@ using OpenTelemetry.Resources;
 using OpenTelemetry.Trace;
 using Users.API;
 using Users.API.Services;
+using ExportProcessorType = OpenTelemetry.ExportProcessorType;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,7 +19,12 @@ builder.Services.AddOpenTelemetry()
     b.AddAspNetCoreInstrumentation(o => { o.RecordException = true; })
       .AddSource("MongoDB.Driver.Core.Extensions.DiagnosticSources")
       .AddOtlpExporter(o =>
-        o.Endpoint = new Uri(builder.Configuration.GetValue("Otlp:Endpoint", defaultValue: "http://localhost:4317")!));
+      {
+        // For demo purposes, use the simple processor.
+        o.ExportProcessorType = ExportProcessorType.Simple;
+        o.Endpoint = new Uri(builder.Configuration.GetValue("Otlp:Endpoint", defaultValue: "http://localhost:4317")!);
+
+      });
   });
 
 // Clear default logging providers and configure OpenTelemetry Logging.
