@@ -42,3 +42,13 @@ datasources:
     editable: false
     jsonData:
       httpMethod: GET
+      derivedFields:
+        - name: trace_id
+          matcherType: label
+          matcherRegex: trace_id
+          url: $${__value.raw}
+          datasourceUid: tempo
+        - name: traceid
+          matcherRegex: (?:traceid=(\w+)|\"TraceId\":\"(\w+)\")
+          url: $${__value.raw}
+          datasourceUid: tempo

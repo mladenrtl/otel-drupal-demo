@@ -1,4 +1,4 @@
-version: "3"
+version: "3.4"
 
 services:
 
@@ -51,3 +51,24 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./docker-compose/promtail/config.yaml:/etc/promtail/promtail-config.yaml
+
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+  users.api:
+    image: users.api
+    ports:
+      - "8080:8080"
+    build:
+      context: .
+      dockerfile: apis/Users.API/Dockerfile
+    depends_on:
+      - mongodb
+
+volumes:
+  mongo-data:
