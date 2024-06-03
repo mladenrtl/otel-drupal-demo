@@ -12,6 +12,10 @@
         {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:mladenrtl/opentelemetry-auto-drupal.git"
         }
     ],
     "require": {
@@ -21,12 +25,14 @@
         "drupal/core-project-message": "^10.2",
         "drupal/core-recommended": "^10.2",
         "drupal/next": "^1.6",
-        "drush/drush": "^12.5"
+        "drush/drush": "^12.5",
+        "mladenrtl/opentelemetry-auto-drupal": "^0.1.1",
+        "open-telemetry/exporter-otlp": "^1.0"
     },
     "conflict": {
         "drupal/drupal": "*"
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "prefer-stable": true,
     "config": {
         "allow-plugins": {
