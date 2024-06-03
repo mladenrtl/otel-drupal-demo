@@ -9,7 +9,7 @@ public static class UserApi
   {
     var group = routes.MapGroup("/users");
 
-    group.MapGet("", async (UserService userService, ILogger<Program> logger) =>
+    group.MapGet("", async (UserService userService) =>
       {
         var users = await userService.GetAllUsersAsync();
         return Results.Ok(users);
