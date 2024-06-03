@@ -9,7 +9,7 @@ public static class UserApi
   {
     var group = routes.MapGroup("/users");
 
-    group.MapGet("", async (UserService userService) =>
+    group.MapGet("", async (UserService userService, ILogger<Program> logger) =>
       {
         var users = await userService.GetAllUsersAsync();
         return Results.Ok(users);
@@ -17,6 +17,11 @@ public static class UserApi
 
     group.MapGet("/{email}", async (UserService userService, string email) =>
       {
+        if (email == "boom!")
+        {
+          throw new Exception("Boom! this is a demo exception");
+        }
+
         var user = await userService.GetUserByEmailAsync(email);
         return user is null ? Results.NotFound() : Results.Ok(user);
       });
