@@ -27,8 +27,18 @@ datasources:
     uid: tempo
     jsonData:
       httpMethod: GET
+      nodeGraph:
+        enabled: true
       serviceMap:
         datasourceUid: prometheus
+      tracesToLogsV2:
+        customQuery: true
+        datasourceUid: "loki"
+        filterBySpanID: false
+        filterByTraceID: false
+        query: '{service_name="$${__span.tags["service.name"]}"} | trace_id="$${__span.traceId}" | span_id="$${__span.spanId}"'
+        spanStartTimeShift: '-1h'
+        spanEndTimeShift: '1h'
 
   - name: Loki
     type: loki

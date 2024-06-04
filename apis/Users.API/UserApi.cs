@@ -17,6 +17,11 @@ public static class UserApi
 
     group.MapGet("/{email}", async (UserService userService, string email) =>
       {
+        if (email == "boom!")
+        {
+          throw new Exception("Boom! this is a demo exception");
+        }
+
         var user = await userService.GetUserByEmailAsync(email);
         return user is null ? Results.NotFound() : Results.Ok(user);
       });
