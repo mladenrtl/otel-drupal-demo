@@ -3,7 +3,7 @@ version: "3.4"
 services:
 
   tempo:
-    image: grafana/tempo:2.4.2
+    image: grafana/tempo:2.5.0
     command: [ "-config.file=/etc/tempo.yaml" ]
     volumes:
       - ./docker-compose/tempo/config.yaml:/etc/tempo.yaml
