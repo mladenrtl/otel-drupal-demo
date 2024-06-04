@@ -1,0 +1,48 @@
+version: "3.4"
+
+services:
+
+  tempo:
+    networks:
+      ddev_default: null
+      default: null
+    container_name: tempo
+
+  prometheus:
+    networks:
+      ddev_default: null
+      default: null
+
+  grafana:
+    networks:
+      ddev_default: null
+      default: null
+
+  loki:
+    networks:
+      ddev_default: null
+      default: null
+
+  promtail:
+    networks:
+      ddev_default: null
+      default: null
+
+  mongodb:
+    networks:
+      ddev_default: null
+      default: null
+
+  users.api:
+    networks:
+      ddev_default: null
+      default: null
+
+networks:
+  ddev_default:
+    external: true
+    name: ddev_default
+  default:
+    labels:
+      com.ddev.platform: ddev
+    name: ddev-fitness-challenge-tracker_default

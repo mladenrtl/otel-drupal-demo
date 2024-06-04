@@ -11,7 +11,17 @@ database:
     version: "10.11"
 use_dns_when_possible: true
 composer_version: "2"
-web_environment: []
+web_environment:
+  - OTEL_PHP_AUTOLOAD_ENABLED=true
+  - OTEL_SERVICE_NAME=ddev-rtl-web
+  - OTEL_TRACES_EXPORTER=otlp
+  - OTEL_METRICS_EXPORTER=none
+  - OTEL_LOGS_EXPORTER=none
+  - OTEL_EXPORTER_OTLP_TRACES_PROTOCOL=http/json
+  - OTEL_PHP_FIBERS_ENABLED=true
+  - OTEL_EXPORTER_OTLP_ENDPOINT=http://tempo:4318
+  - OTEL_PROPAGATORS=baggage,tracecontext
+
 corepack_enable: false
 
 web_extra_daemons:
@@ -23,7 +33,7 @@ web_extra_exposed_ports:
   # A frontend app
   - name: node-app
     container_port: 3000
-    http_port: 3000
+    http_port: 4000
     https_port: 2999
 
 # Key features of DDEV's config.yaml:
