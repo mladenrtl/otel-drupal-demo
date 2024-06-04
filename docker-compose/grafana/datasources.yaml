@@ -12,7 +12,10 @@ datasources:
     version: 1
     editable: false
     jsonData:
-      httpMethod: GET
+      httpMethod: POST
+      exemplarTraceIdDestinations:
+        - name: traceID
+          datasourceUid: tempo
 
   - name: Tempo
     type: tempo
