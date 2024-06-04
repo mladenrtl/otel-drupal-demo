@@ -26,7 +26,7 @@
   "fiscalYearStartMonth": 0,
   "gnetId": 1471,
   "graphTooltip": 1,
-  "id": 2,
+  "id": 1,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -376,7 +376,7 @@
                 {
                   "targetBlank": true,
                   "title": "Go to details",
-                  "url": "explore?orgId=1&left={\"datasource\":\"loki\",\"queries\":[{\"refId\":\"A\",\"expr\":\"{span_service_name=\\\"${service:queryparam.text}\\\", span_name=\\\"${__field.labels.span_name}\\\"}\\n\n | kind=\\\"SPAN_KIND_SERVER\\\"\\n\n | cluster=~\\\"${cluster:queryparam.text}\\\"\\n\n | service_version=~\\\"${version:queryparam.text}\\\"\\n\n | http_response_status_code=﻿${__field.labels.http_response_status_code}﻿\\n\n | logfmt\\n\",\n\"queryType\":\"range\",\"datasource\":{\"type\":\"loki\",\"uid\":\"loki\"},\"editorMode\":\"code\"}],\"range\":{\"from\":\"$__from\",\"to\":\"$__to\"}}"
+                  "url": "explore?orgId=1&left={\"datasource\":\"loki\",\"queries\":[{\"refId\":\"A\",\"expr\":\"{span_service_name=\\\"${service:queryparam.text}\\\", span_name=\\\"${__field.labels.span_name}\\\"}\\n\n | kind=\\\"SPAN_KIND_SERVER\\\"\\n\n | cluster=~\\\"${cluster:queryparam.text}\\\"\\n\n | service_version=~\\\"${version:queryparam.text}\\\"\\n\n | http_response_status_code=﻿${__field.labels.http_response_status_code}﻿\\n\n | logfmt\",\n\"queryType\":\"range\",\"datasource\":{\"type\":\"loki\",\"uid\":\"loki\"},\"editorMode\":\"code\"}],\"range\":{\"from\":\"$__from\",\"to\":\"$__to\"}}"
                 }
               ],
               "mappings": [],
@@ -393,7 +393,7 @@
                   }
                 ]
               },
-              "unit": "rps"
+              "unit": "reqps"
             },
             "overrides": []
           },
@@ -487,7 +487,7 @@
                 {
                   "targetBlank": true,
                   "title": "Go to details",
-                  "url": "explore?orgId=1&left={\"datasource\":\"loki\",\"queries\":[{\"refId\":\"A\",\"expr\":\"{span_service_name=\\\"${service:queryparam.text}\\\", span_name=\\\"${__field.labels.span_name}\\\"}\\n\n | kind=\\\"SPAN_KIND_SERVER\\\"\\n\n | cluster=~\\\"${cluster:queryparam.text}\\\"\\n\n | service_version=~\\\"${version:queryparam.text}\\\"\\n\n | http_response_status_code=﻿${__field.labels.http_response_status_code}﻿\\n\n | logfmt\\n\",\n\"queryType\":\"range\",\"datasource\":{\"type\":\"loki\",\"uid\":\"loki\"},\"editorMode\":\"code\"}],\"range\":{\"from\":\"$__from\",\"to\":\"$__to\"}}"
+                  "url": "explore?orgId=1&left={\"datasource\":\"loki\",\"queries\":[{\"refId\":\"A\",\"expr\":\"{span_service_name=\\\"${service:queryparam.text}\\\", span_name=\\\"${__field.labels.span_name}\\\"}\\n\n | kind=\\\"SPAN_KIND_SERVER\\\"\\n\n | cluster=~\\\"${cluster:queryparam.text}\\\"\\n\n | service_version=~\\\"${version:queryparam.text}\\\"\\n\n | http_response_status_code=﻿${__field.labels.http_response_status_code}﻿\\n\n | logfmt\",\n\"queryType\":\"range\",\"datasource\":{\"type\":\"loki\",\"uid\":\"loki\"},\"editorMode\":\"code\"}],\"range\":{\"from\":\"$__from\",\"to\":\"$__to\"}}"
                 }
               ],
               "mappings": [],
@@ -599,7 +599,7 @@
                 {
                   "targetBlank": true,
                   "title": "Go to details",
-                  "url": "explore?orgId=1&left={\"datasource\":\"loki\",\"queries\":[{\"refId\":\"A\",\"expr\":\"{span_service_name=\\\"${service:queryparam.text}\\\", span_name=\\\"${__field.labels.span_name}\\\"}\\n\n | kind=\\\"SPAN_KIND_CLIENT\\\"\\n\n | cluster=~\\\"${cluster:queryparam.text}\\\"\\n\n | service_version=~\\\"${version:queryparam.text}\\\"\\n\n | http_response_status_code=﻿${__field.labels.http_response_status_code}﻿\\n\n | logfmt\\n\",\n\"queryType\":\"range\",\"datasource\":{\"type\":\"loki\",\"uid\":\"loki\"},\"editorMode\":\"code\"}],\"range\":{\"from\":\"$__from\",\"to\":\"$__to\"}}"
+                  "url": "explore?orgId=1&left={\"datasource\":\"loki\",\"queries\":[{\"refId\":\"A\",\"expr\":\"{span_service_name=\\\"${service:queryparam.text}\\\", span_name=\\\"${__field.labels.span_name}\\\"}\\n\n | kind=\\\"SPAN_KIND_CLIENT\\\"\\n\n | cluster=~\\\"${cluster:queryparam.text}\\\"\\n\n | service_version=~\\\"${version:queryparam.text}\\\"\\n\n | http_response_status_code=﻿${__field.labels.http_response_status_code}﻿\\n\n | logfmt\",\n\"queryType\":\"range\",\"datasource\":{\"type\":\"loki\",\"uid\":\"loki\"},\"editorMode\":\"code\"}],\"range\":{\"from\":\"$__from\",\"to\":\"$__to\"}}"
                 }
               ],
               "mappings": [],
@@ -710,7 +710,7 @@
                 {
                   "targetBlank": true,
                   "title": "Go to details",
-                  "url": "explore?orgId=1&left={\"datasource\":\"loki\",\"queries\":[{\"refId\":\"A\",\"expr\":\"{span_service_name=\\\"${service:queryparam.text}\\\", span_name=\\\"${__field.labels.span_name}\\\"}\\n\n | kind=\\\"SPAN_KIND_CLIENT\\\"\\n\n | cluster=~\\\"${cluster:queryparam.text}\\\"\\n\n | service_version=~\\\"${version:queryparam.text}\\\"\\n\n | http_response_status_code=﻿${__field.labels.http_response_status_code}﻿\\n\n | logfmt\\n\",\n\"queryType\":\"range\",\"datasource\":{\"type\":\"loki\",\"uid\":\"loki\"},\"editorMode\":\"code\"}],\"range\":{\"from\":\"$__from\",\"to\":\"$__to\"}}"
+                  "url": "explore?orgId=1&left={\"datasource\":\"loki\",\"queries\":[{\"refId\":\"A\",\"expr\":\"{span_service_name=\\\"${service:queryparam.text}\\\", span_name=\\\"${__field.labels.span_name}\\\"}\\n\n | kind=\\\"SPAN_KIND_CLIENT\\\"\\n\n | cluster=~\\\"${cluster:queryparam.text}\\\"\\n\n | service_version=~\\\"${version:queryparam.text}\\\"\\n\n | http_response_status_code=﻿${__field.labels.http_response_status_code}﻿\\n\n | logfmt\",\n\"queryType\":\"range\",\"datasource\":{\"type\":\"loki\",\"uid\":\"loki\"},\"editorMode\":\"code\"}],\"range\":{\"from\":\"$__from\",\"to\":\"$__to\"}}"
                 }
               ],
               "mappings": [],
@@ -849,8 +849,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -953,8 +952,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -1055,8 +1053,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -1157,8 +1154,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -1310,7 +1306,7 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 6
+            "y": 22
           },
           "id": 116,
           "options": {
@@ -1422,7 +1418,7 @@
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 6
+            "y": 22
           },
           "id": 117,
           "options": {
@@ -1537,8 +1533,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -1642,8 +1637,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -1776,8 +1770,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -1884,8 +1877,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -1992,8 +1984,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -2100,8 +2091,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -2169,7 +2159,7 @@
       {
         "allValue": ".*",
         "current": {
-          "selected": true,
+          "selected": false,
           "text": [
             "All"
           ],
@@ -2340,7 +2330,7 @@
     ]
   },
   "time": {
-    "from": "now-6h",
+    "from": "now-1h",
     "to": "now"
   },
   "timeRangeUpdatedDuringEditOrView": false,
