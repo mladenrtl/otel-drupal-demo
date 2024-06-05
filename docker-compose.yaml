@@ -83,5 +83,11 @@ services:
       - mongodb
       - tempo
 
+  frontend:
+    build:
+      context: frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3003:3000"
 volumes:
   mongo-data:
