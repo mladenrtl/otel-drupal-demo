@@ -4,7 +4,8 @@ FROM node:20-alpine AS node_upstream
 RUN mkdir -p /app
 WORKDIR /app
 COPY . .
+COPY ./.env.prod ./.env.local
 RUN npm install
 RUN npm run build
 EXPOSE 3000
-CMD ["npm", "start"]
+CMD ["node", "server.js"]

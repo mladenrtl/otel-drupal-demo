@@ -89,5 +89,7 @@ services:
       dockerfile: Dockerfile
     ports:
       - "3003:3000"
+    depends_on:
+      - tempo
 volumes:
   mongo-data:
