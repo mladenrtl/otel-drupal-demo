@@ -31,11 +31,16 @@ scrape_configs:
                 mapping:
                   service_name: 'span_service_name'
                   name: 'span_name'
+                  span_service_version:
+                  span_cluster:
                   span_id: 'spanid'
                   trace_id: 'traceid'
                   span_kind:
                   span_status:
                   span_duration_seconds:
+                  span_http_response_status_code:
+                  span_http_request_method:
+                  span_db_system:
             - labels:
                 span_service_name: 'service_name'
                 span_name: 'name'
@@ -43,8 +48,12 @@ scrape_configs:
                 kind: 'span_kind'
                 status: 'span_status'
                 duration_seconds: 'span_duration_seconds'
+                cluster: 'span_cluster'
                 trace_id:
                 span_id:
+                http_response_status_code: 'span_http_response_status_code'
+                http_request_method: 'span_http_request_method'
+                db_system: 'span_db_system'
             - replace:
                 expression: '((span_service_name|span_name|spanid|traceid|level|caller|ts|msg)="[^"]+"+\s?|(span_service_name|span_name|spanid|traceid|level|caller|ts|msg)=[^\s]+\s?)'
                 replacement: ''

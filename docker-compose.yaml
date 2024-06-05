@@ -3,7 +3,7 @@ version: "3.4"
 services:
 
   tempo:
-    image: grafana/tempo:2.4.2
+    image: grafana/tempo:2.5.0
     command: [ "-config.file=/etc/tempo.yaml" ]
     volumes:
       - ./docker-compose/tempo/config.yaml:/etc/tempo.yaml
@@ -28,11 +28,12 @@ services:
     depends_on:
       - loki
 
-
   grafana:
     image: grafana/grafana:11.0.0
     volumes:
       - ./docker-compose/grafana/datasources.yaml:/etc/grafana/provisioning/datasources/datasources.yaml
+      - ./docker-compose/grafana/dashboards:/etc/grafana/provisioning/dashboards
+      - ./docker-compose/grafana/dashboards.yaml:/etc/grafana/provisioning/dashboards/dashboards.yaml
     environment:
       - GF_AUTH_ANONYMOUS_ENABLED=true
       - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
