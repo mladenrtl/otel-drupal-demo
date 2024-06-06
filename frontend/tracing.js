@@ -1,29 +1,23 @@
 'use strict';
 
+const { diag, DiagConsoleLogger, DiagLogLevel } = require('@opentelemetry/api');
+
 const opentelemetry= require('@opentelemetry/sdk-node');
-const { SimpleSpanProcessor } = require('@opentelemetry/sdk-trace-node');
 const { Resource } = require('@opentelemetry/resources');
 const {
-  SemanticResourceAttributes,
+  SEMRESATTRS_SERVICE_NAME,
 } = require('@opentelemetry/semantic-conventions');
-const {
-  OTLPTraceExporter,
-} = require('@opentelemetry/exporter-trace-otlp-http');
 const { getNodeAutoInstrumentations } = require("@opentelemetry/auto-instrumentations-node");
 
-const traceExporter = new OTLPTraceExporter({
-  url: process.env.OTEL_EXPORTER_OTLP_ENDPOINT,
-});
+diag.setLogger(new DiagConsoleLogger(), DiagLogLevel.DEBUG);
 
 // enable all auto-instrumentations from the meta package
 const sdk = new opentelemetry.NodeSDK({
-  traceExporter,
   resource: new Resource({
-    [SemanticResourceAttributes.SERVICE_NAME]: `ddev-rtl-web-frontend`,
+    [SEMRESATTRS_SERVICE_NAME]: `ddev-rtl-web-frontend`,
   }),
   instrumentations: [getNodeAutoInstrumentations(
     {
-      // eslint-disable-next-line @typescript-eslint/naming-convention
       "@opentelemetry/instrumentation-fs": {
         enabled: false, // very noisy
       },
