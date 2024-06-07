@@ -12,10 +12,10 @@ export function NodeArticle({ node, ...props }: NodeArticleProps) {
     <article {...props}>
       <h1 className="mb-4 text-6xl font-black leading-tight">{node.title}</h1>
       <div className="mb-4 text-gray-600">
-        {node.uid?.display_name ? (
+        {node.author?.name ? (
           <span>
             Posted by{" "}
-            <span className="font-semibold">{node.uid?.display_name}</span>
+            <span className="font-semibold">{node.author?.name}</span>
           </span>
         ) : null}
         <span> - {formatDate(node.created)}</span>

@@ -17,7 +17,16 @@ builder.Services.AddOpenTelemetry()
   .ConfigureResource(configureResource)
   .WithTracing(b =>
   {
-    b.AddAspNetCoreInstrumentation()
+    b.AddAspNetCoreInstrumentation(o =>
+      {
+        o.EnrichWithHttpRequest = (activity, request) =>
+        {
+          foreach (var header in request.Headers)
+          {
+            activity.SetTag("Header." + header.Key, header.Value.ToString());
+          }
+        };
+      })
       .AddSource("MongoDB.Driver.Core.Extensions.DiagnosticSources")
       .AddOtlpExporter(o =>
       {

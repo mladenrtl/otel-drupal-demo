@@ -1,0 +1,5 @@
+#services:
+#  otel_demo.typed_data:
+#    class: Drupal\otel_demo\Normalizer\UserApiClass
+#    tags:
+#      - { name: normalizer, priority: 10 }

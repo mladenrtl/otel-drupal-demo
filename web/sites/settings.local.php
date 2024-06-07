@@ -40,7 +40,10 @@ $settings['cache']['bins']['dynamic_page_cache'] = 'cache.backend.null';
 $settings['cache']['bins']['render'] = 'cache.backend.null';
 $settings['cache']['bins']['page'] = 'cache.backend.null';
 $settings['cache']['bins']['default'] = 'cache.backend.null';
+$settings['cache']['bins']['jsonapi_normalizations'] = 'cache.backend.null';
 $config['system.performance']['cache']['page']['max_age'] = 0;
+
+$settings['config_sync_directory'] = DRUPAL_ROOT . '/drupal-config/sync';
 
 /**
  * Show all error messages, with backtrace information.
