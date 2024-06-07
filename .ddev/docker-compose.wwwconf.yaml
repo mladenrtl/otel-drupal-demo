@@ -1,0 +1,4 @@
+services:
+  web:
+    volumes:
+      - "./php-fpm/www.logs.conf:/etc/php/${DDEV_PHP_VERSION}/fpm/pool.d/www.logs.conf"
