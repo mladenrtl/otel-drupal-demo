@@ -38,6 +38,10 @@ services:
       ddev_default: null
       default: null
 
+  frontend:
+    networks:
+      ddev_default: null
+      default: null
 networks:
   ddev_default:
     external: true

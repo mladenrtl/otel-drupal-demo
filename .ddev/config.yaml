@@ -24,17 +24,17 @@ web_environment:
 
 corepack_enable: false
 
-web_extra_daemons:
-  - name: "node-app"
-    command: "/usr/bin/npm install && /usr/bin/npm run dev"
-    directory: /var/www/html/frontend
-
-web_extra_exposed_ports:
-  # A frontend app
-  - name: node-app
-    container_port: 3000
-    http_port: 4000
-    https_port: 2999
+#web_extra_daemons:
+#  - name: "node-app"
+#    command: "/usr/bin/npm install && OTEL_SERVICE_NAME=frontend /usr/bin/npm run dev"
+#    directory: /var/www/html/frontend
+#
+#web_extra_exposed_ports:
+#  # A frontend app
+#  - name: node-app
+#    container_port: 3000
+#    http_port: 4000
+#    https_port: 2999
 
 # Key features of DDEV's config.yaml:
 
