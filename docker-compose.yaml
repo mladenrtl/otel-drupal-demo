@@ -102,7 +102,7 @@ services:
     ports:
       - "3003:3000"
     environment:
-      - OTEL_EXPORTER_OTLP_TRACES_ENDPOINT=http://tempo:4317
+      - OTEL_EXPORTER_OTLP_TRACES_ENDPOINT=http://otel-collector:4317
       - OTEL_TRACES_EXPORTER=otlp
       - OTEL_EXPORTER_OTLP_PROTOCOL=grpc
     depends_on:
