@@ -140,6 +140,8 @@ class AuthorFieldEnhancer extends ResourceFieldEnhancerBase implements Container
       $options['headers'][$key] = $value;
     }
 
+    \Drupal::logger('otel_demo')->info('Fetching user details for email: ' . $email);
+
     $userDetails = $httpClient->get("http://users.api:8080/users/{$email}", $options);
 
     return $userDetails->getBody()->getContents();
