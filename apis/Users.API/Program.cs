@@ -23,7 +23,7 @@ builder.Services.AddOpenTelemetry()
       {
         // For demo purposes, use the simple processor.
         o.ExportProcessorType = ExportProcessorType.Simple;
-        o.Endpoint = new Uri(builder.Configuration.GetValue("Otlp:Endpoint", defaultValue: "http://localhost:4317")!);
+        o.Endpoint = new Uri(builder.Configuration.GetValue("Otlp:Endpoint", defaultValue: "http://otel-collector:4317")!);
       });
   });
 
@@ -38,9 +38,8 @@ builder.Logging.AddOpenTelemetry(options =>
   {
     // For demo purposes, use the simple processor.
     otlpOptions.ExportProcessorType = ExportProcessorType.Simple;
-    otlpOptions.Protocol = OtlpExportProtocol.HttpProtobuf;
     otlpOptions.Endpoint =
-      new Uri(builder.Configuration.GetValue("OtlpLogs:Endpoint", defaultValue: "http://localhost:3100/otlp/v1/logs")!);
+      new Uri(builder.Configuration.GetValue("Otlp:Endpoint", defaultValue: "http://otel-collector:4317")!);
 
     if (builder.Environment.IsDevelopment())
     {
@@ -56,6 +55,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+
 
 if (app.Environment.IsDevelopment())
 {
