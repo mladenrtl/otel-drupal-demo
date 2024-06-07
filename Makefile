@@ -1,3 +1,17 @@
+.PHONY: composer-install
+composer-install:
+	ddev composer install
+
+.PHONY: create-project
+create-project:
+	ddev drush site:install minimal --account-name=admin --account-pass=admin -y --config-dir=/var/www/html/web/drupal-config/sync --existing-config
+
+.PHONY: create-ddev
+create-ddev: start-ddev composer-install create-project
+
+.PHONY: create-project
+create-project: create-ddev start-docker-compose
+
 .PHONY: start-ddev
 start-ddev:
 	ddev start
@@ -26,3 +40,7 @@ restart-project: restart-ddev start-docker-compose
 
 .PHONY: stop-project
 stop-project: stop-ddev stop-docker-compose
+
+.PHONY: login
+login:
+	ddev drush uli
