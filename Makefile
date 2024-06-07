@@ -4,7 +4,7 @@ composer-install:
 
 .PHONY: create-project
 create-project:
-	ddev drush site:install minimal --account-name=admin --account-pass=admin -y --config-dir=/var/www/html/web/drupal-config/sync --existing-config
+	ddev drush site:install minimal --account-name=admin --account-pass=admin -y --existing-config
 
 .PHONY: create-ddev
 create-ddev: start-ddev composer-install create-project
