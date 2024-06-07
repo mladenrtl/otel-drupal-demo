@@ -1,0 +1,7 @@
+name: 'otel_demo'
+type: module
+description: 'Otel demo'
+package: Custom
+core_version_requirement: ^10 || ^11
+dependencies:
+  - jsonapi

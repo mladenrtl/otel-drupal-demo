@@ -15,10 +15,10 @@ export function NodeArticleTeaser({ node, ...props }: NodeArticleTeaserProps) {
         <h2 className="mb-4 text-4xl font-bold">{node.title}</h2>
       </Link>
       <div className="mb-4 text-gray-600">
-        {node.uid?.display_name ? (
+        {node.author?.name ? (
           <span>
             Posted by{" "}
-            <span className="font-semibold">{node.uid?.display_name}</span>
+            <span className="font-semibold">{node.author?.name}</span>
           </span>
         ) : null}
         <span> - {formatDate(node.created)}</span>

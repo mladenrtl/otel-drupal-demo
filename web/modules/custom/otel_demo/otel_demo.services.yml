@@ -1,0 +1,15 @@
+services:
+
+  otel_demo.batch.service:
+    class: Drupal\otel_demo\Service\BatchService
+
+  otel_demo.logger.stdout:
+    class: Drupal\otel_demo\Logger\Stdout
+    arguments:
+      - '@otel_demo.batch.service'
+      - '@otel_demo.stream_writer.factory'
+    tags:
+      - { name: logger }
+
+  otel_demo.stream_writer.factory:
+    class: Drupal\otel_demo\ResourceWriter\StreamWriterFactory
