@@ -95,3 +95,4 @@ dist/
 # Ignore coverage reports
 coverage/
 /docker-compose/tempo/tempo-data/
+k6-tests/urls.js

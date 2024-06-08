@@ -1,6 +1,6 @@
 # OpenTelemetry Demo
 
-Welcome to our project! This README provides an overview of the project structure, components, and how to get started.
+Welcome to our OpenTelemetry Demo project! This README provides an overview of the project structure, components, and how to get started.
 
 ## Overview
 
@@ -40,4 +40,21 @@ This project consists of two main parts:
 3. **Login as Admin**: `make login`
 4. **Start Development**: Start the development environment using the appropriate Makefile commands.
 5. **Happy Coding!**: Start developing your Drupal website and UserAPI/Frontend components.
+
+### Load Testing
+
+For load testing, we use k6. We use the k6 Docker image to run tests. The tests are located in the `k6-tests` directory.
+
+To run the sample test with urls, follow these steps:
+- Uncomment the `k6` service in the `docker-compose.yml` and `docker-compose.override.yml` files.
+- Copy file `k6-tests/urls.dist.js to k6-tests/urls.js` and add URLs to test.
+- Run k6 test with `make k6-test`
+- To create and run a test script, do the following:
+  - Create a new test script in the `k6-tests` directory.
+  - Change command of k6 service in the `docker-compose.yml` file to run the new test script.
+  - Run k6 test with `make k6-test`
+
+
+
+
 
