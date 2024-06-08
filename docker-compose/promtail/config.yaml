@@ -21,7 +21,7 @@ scrape_configs:
         replacement: /var/lib/docker/containers/__meta_docker_container_id__/__meta_docker_container_id__-json.log
     pipeline_stages:
       - match:
-          selector: '{job="/otel-drupal-demo-tempo-1"} |= " msg=received "'
+          selector: '{job=~".*tempo.*"} |= " msg=received "'
           stages:
             - labeldrop:
                 - service_name

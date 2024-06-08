@@ -19,7 +19,7 @@ web_environment:
   - OTEL_LOGS_EXPORTER=none
   - OTEL_EXPORTER_OTLP_TRACES_PROTOCOL=http/json
   - OTEL_PHP_FIBERS_ENABLED=true
-  - OTEL_EXPORTER_OTLP_ENDPOINT=http://tempo:4318
+  - OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4318
   - OTEL_PROPAGATORS=baggage,tracecontext
 
 corepack_enable: false

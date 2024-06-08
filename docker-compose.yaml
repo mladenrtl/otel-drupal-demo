@@ -2,6 +2,19 @@ version: "3.4"
 
 services:
 
+  otel-collector:
+    image: otel/opentelemetry-collector-contrib:0.102.0
+    command: [ "--config=/etc/otel-collector-config.yaml" ]
+    volumes:
+      - ./docker-compose/otel-collector/config.yaml:/etc/otel-collector-config.yaml
+    ports:
+      - "4317:4317"  # otlp grpc
+      - "4318:4318"  # otlp http
+    depends_on:
+      - tempo
+      - prometheus
+      - loki
+
   tempo:
     image: grafana/tempo:2.5.0
     command: [ "-config.file=/etc/tempo.yaml" ]
@@ -10,8 +23,6 @@ services:
       - ./docker-compose/tempo/tempo-data:/tmp/tempo
     ports:
       - "3200:3200"   # tempo
-      - "4317:4317"  # otlp grpc
-      - "4318:4318"  # otlp http
     depends_on:
       - loki
 
@@ -20,7 +31,9 @@ services:
     command:
       - --config.file=/etc/prometheus.yaml
       - --web.enable-remote-write-receiver
+      - --enable-feature=otlp-write-receiver
       - --enable-feature=exemplar-storage
+      - --enable-feature=native-histograms
     volumes:
       - ./docker-compose/prometheus/config.yaml:/etc/prometheus.yaml
     ports:
@@ -80,8 +93,7 @@ services:
       context: .
       dockerfile: apis/Users.API/Dockerfile
     depends_on:
-      - mongodb
-      - tempo
+      - otel-collector
 
   frontend:
     build:
@@ -90,10 +102,10 @@ services:
     ports:
       - "3003:3000"
     environment:
-      - OTEL_EXPORTER_OTLP_TRACES_ENDPOINT=http://tempo:4317
+      - OTEL_EXPORTER_OTLP_TRACES_ENDPOINT=http://otel-collector:4317
       - OTEL_TRACES_EXPORTER=otlp
       - OTEL_EXPORTER_OTLP_PROTOCOL=grpc
     depends_on:
-      - tempo
+      - otel-collector
 volumes:
   mongo-data:
