@@ -31,7 +31,7 @@
         "drupal/next": "^1.6",
         "drush/drush": "^12.5",
         "elastic/ecs-logging": "^2.0",
-        "mladenrtl/opentelemetry-auto-drupal": "^0.1.1",
+        "mladenrtl/opentelemetry-auto-drupal": "^0.1.2",
         "monolog/monolog": "^3.6",
         "open-telemetry/exporter-otlp": "^1.0"
     },
