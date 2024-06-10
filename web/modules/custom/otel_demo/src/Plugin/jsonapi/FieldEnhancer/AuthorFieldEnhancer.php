@@ -124,6 +124,7 @@ class AuthorFieldEnhancer extends ResourceFieldEnhancerBase implements Container
 
   /**
    * @throws GuzzleException
+   * @throws \Exception
    */
   private function getUserDetailsByEmail(?string $email): string {
     $httpClient = \Drupal::httpClient();
@@ -142,9 +143,11 @@ class AuthorFieldEnhancer extends ResourceFieldEnhancerBase implements Container
 
     \Drupal::logger('otel_demo')->info('Fetching user details for email: ' . $email);
 
-    $userDetails = $httpClient->get("http://users.api:8080/users/{$email}", $options);
+    throw new \Exception('User API is not available');
 
-    return $userDetails->getBody()->getContents();
+//    $userDetails = $httpClient->get("http://users.api:8080/users/{$email}", $options);
+//
+//    return $userDetails->getBody()->getContents();
   }
 
   private static function getCurrentOtelSpan(): ?SpanInterface {
