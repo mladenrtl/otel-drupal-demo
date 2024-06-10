@@ -1091,7 +1091,7 @@
                 "uid": "prometheus"
               },
               "editorMode": "code",
-              "expr": "histogram_quantile($quantiles, sum(rate(traces_spanmetrics_latency_bucket{service=\"$service\", span_kind=\"SPAN_KIND_CLIENT\", http_status_code=~\"[2-3]..\", span_name!~\"HTTP .*\", cluster=~\"$cluster\", service_version=~\"$version\"}[$__rate_interval])) by (span_name, http_status_code, http_method, le))",
+              "expr": "histogram_quantile($quantiles, sum(rate(traces_spanmetrics_latency_bucket{service=\"$service\", span_kind=\"SPAN_KIND_CLIENT\", http_response_status_code=~\"[2-3]..\", span_name!~\"HTTP .*\", cluster=~\"$cluster\", service_version=~\"$version\"}[$__rate_interval])) by (span_name, http_status_code, http_method, le))",
               "hide": false,
               "instant": false,
               "legendFormat": "{{span_name}}{{http_host}} - {{http_method}} {{http_status_code}}",
@@ -1192,7 +1192,7 @@
                 "uid": "prometheus"
               },
               "editorMode": "code",
-              "expr": "histogram_quantile($quantiles, sum(rate(traces_spanmetrics_latency_bucket{service=\"$service\", span_kind=\"SPAN_KIND_CLIENT\", http_status_code=~\"$httpErrorPattern\", http_host!=\"\", cluster=~\"$cluster\", span_name!~\"HTTP .*\", service_version=~\"$version\"}[$__rate_interval])) by (span_name, http_status_code, http_method, le))",
+              "expr": "histogram_quantile($quantiles, sum(rate(traces_spanmetrics_latency_bucket{service=\"$service\", span_kind=\"SPAN_KIND_CLIENT\", http_response_status_code=~\"$httpErrorPattern\", http_host!=\"\", cluster=~\"$cluster\", span_name!~\"HTTP .*\", service_version=~\"$version\"}[$__rate_interval])) by (span_name, http_status_code, http_method, le))",
               "hide": false,
               "instant": false,
               "legendFormat": "{{span_name}}{{http_host}} - {{http_method}} {{http_status_code}}",
