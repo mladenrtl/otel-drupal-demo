@@ -44,3 +44,7 @@ stop-project: stop-ddev stop-docker-compose
 .PHONY: login
 login:
 	ddev drush uli
+
+.PHONY: k6-test
+k6-test:
+	docker-compose up k6 --remove-orphans

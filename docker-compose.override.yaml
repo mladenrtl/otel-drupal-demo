@@ -1,5 +1,3 @@
-version: "3.4"
-
 services:
 
   tempo:
@@ -42,6 +40,12 @@ services:
     networks:
       ddev_default: null
       default: null
+
+#  k6:
+#    networks:
+#      ddev_default: null
+#      default: null
+
 networks:
   ddev_default:
     external: true
