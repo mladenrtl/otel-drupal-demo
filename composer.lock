@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4fc1d66144505b58db5efc7a8b547f60",
+    "content-hash": "b70eec4b3b6da299885c9ec5b8d37468",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3903,16 +3903,16 @@
         },
         {
             "name": "mladenrtl/opentelemetry-auto-drupal",
-            "version": "0.1.1",
+            "version": "0.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mladenrtl/opentelemetry-auto-drupal.git",
-                "reference": "c707804b9b9ce16c632fdd3b8b250f1f7d65baca"
+                "reference": "0876a7dcb7d236821cc45503cc44b58ecf7f1192"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mladenrtl/opentelemetry-auto-drupal/zipball/c707804b9b9ce16c632fdd3b8b250f1f7d65baca",
-                "reference": "c707804b9b9ce16c632fdd3b8b250f1f7d65baca",
+                "url": "https://api.github.com/repos/mladenrtl/opentelemetry-auto-drupal/zipball/0876a7dcb7d236821cc45503cc44b58ecf7f1192",
+                "reference": "0876a7dcb7d236821cc45503cc44b58ecf7f1192",
                 "shasum": ""
             },
             "require": {
@@ -3937,10 +3937,10 @@
             ],
             "description": "OpenTelemetry auto-instrumentation for Drupal",
             "support": {
-                "source": "https://github.com/mladenrtl/opentelemetry-auto-drupal/tree/0.1.1",
+                "source": "https://github.com/mladenrtl/opentelemetry-auto-drupal/tree/0.1.3",
                 "issues": "https://github.com/mladenrtl/opentelemetry-auto-drupal/issues"
             },
-            "time": "2024-06-03T12:26:47+00:00"
+            "time": "2024-06-10T12:54:01+00:00"
         },
         {
             "name": "monolog/monolog",
