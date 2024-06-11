@@ -23,7 +23,7 @@ builder.Services.AddOpenTelemetry()
         {
           foreach (var header in request.Headers)
           {
-            activity.SetTag("Header." + header.Key, header.Value.ToString());
+            activity.SetTag($"header.{header.Key}", header.Value.ToString());
           }
         };
       })

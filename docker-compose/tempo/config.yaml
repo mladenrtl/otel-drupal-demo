@@ -41,6 +41,7 @@ metrics_generator:
       dimensions:
         - http.response.status_code
         - http.request.method
+        - server.address
         - db.name
         - db.system
         - db.operation

@@ -19,7 +19,22 @@ scrape_configs:
       - source_labels: [__meta_docker_container_id]
         target_label: __path__
         replacement: /var/lib/docker/containers/__meta_docker_container_id__/__meta_docker_container_id__-json.log
+    # Hacky stuff here done for demo purposes!
     pipeline_stages:
+      - match:
+          selector: '{job=~"/ddev.*"} |= "{"'
+          stages:
+            - json:
+                expressions:
+                  trace_id: TraceId
+                  span_id: SpanId
+                  level: _l
+                  key_OriginalFormat_: message
+            - structured_metadata:
+                trace_id:
+                span_id:
+                level:
+                key_OriginalFormat_:
       - match:
           selector: '{job=~".*tempo.*"} |= " msg=received "'
           stages:

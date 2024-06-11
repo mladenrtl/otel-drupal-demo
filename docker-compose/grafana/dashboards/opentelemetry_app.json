@@ -384,7 +384,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   },
                   {
                     "color": "red",
@@ -495,7 +496,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   },
                   {
                     "color": "red",
@@ -605,7 +607,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   },
                   {
                     "color": "red",
@@ -715,7 +718,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   },
                   {
                     "color": "red",
@@ -845,7 +849,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   },
                   {
                     "color": "red",
@@ -861,7 +866,7 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 5
+            "y": 21
           },
           "id": 120,
           "options": {
@@ -948,7 +953,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   },
                   {
                     "color": "red",
@@ -964,7 +970,7 @@
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 5
+            "y": 21
           },
           "id": 121,
           "options": {
@@ -1049,7 +1055,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   },
                   {
                     "color": "red",
@@ -1065,7 +1072,7 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 13
+            "y": 29
           },
           "id": 122,
           "options": {
@@ -1091,11 +1098,11 @@
                 "uid": "prometheus"
               },
               "editorMode": "code",
-              "expr": "histogram_quantile($quantiles, sum(rate(traces_spanmetrics_latency_bucket{service=\"$service\", span_kind=\"SPAN_KIND_CLIENT\", http_response_status_code=~\"[2-3]..\", span_name!~\"HTTP .*\", cluster=~\"$cluster\", service_version=~\"$version\"}[$__rate_interval])) by (span_name, http_status_code, http_method, le))",
-              "hide": false,
               "exemplar": true,
+              "expr": "histogram_quantile($quantiles, sum(rate(traces_spanmetrics_latency_bucket{service=\"$service\", span_kind=\"SPAN_KIND_CLIENT\", http_response_status_code=~\"[2-3]..\", span_name!~\"HTTP .*\", cluster=~\"$cluster\", service_version=~\"$version\"}[$__rate_interval])) by (span_name, http_response_status_code, http_method, le))",
+              "hide": false,
               "instant": false,
-              "legendFormat": "{{span_name}}{{http_host}} - {{http_method}} {{http_status_code}}",
+              "legendFormat": "{{span_name}}{{http_host}} - {{http_response_status_code}} {{http_status_code}}",
               "range": true,
               "refId": "B"
             }
@@ -1151,7 +1158,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   },
                   {
                     "color": "red",
@@ -1167,7 +1175,7 @@
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 13
+            "y": 29
           },
           "id": 123,
           "options": {
@@ -1193,10 +1201,10 @@
                 "uid": "prometheus"
               },
               "editorMode": "code",
-              "expr": "histogram_quantile($quantiles, sum(rate(traces_spanmetrics_latency_bucket{service=\"$service\", span_kind=\"SPAN_KIND_CLIENT\", http_response_status_code=~\"$httpErrorPattern\", http_host!=\"\", cluster=~\"$cluster\", span_name!~\"HTTP .*\", service_version=~\"$version\"}[$__rate_interval])) by (span_name, http_status_code, http_method, le))",
+              "expr": "histogram_quantile($quantiles, sum(rate(traces_spanmetrics_latency_bucket{service=\"$service\", span_kind=\"SPAN_KIND_CLIENT\", http_response_status_code=~\"$httpErrorPattern\", http_host!=\"\", cluster=~\"$cluster\", span_name!~\"HTTP .*\", service_version=~\"$version\"}[$__rate_interval])) by (span_name, http_response_status_code, http_method, le))",
               "hide": false,
               "instant": false,
-              "legendFormat": "{{span_name}}{{http_host}} - {{http_method}} {{http_status_code}}",
+              "legendFormat": "{{span_name}}{{http_host}} - {{http_method}} {{http_response_status_code}}",
               "range": true,
               "refId": "B"
             }
@@ -1286,7 +1294,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   },
                   {
                     "color": "red",
@@ -1397,7 +1406,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   },
                   {
                     "color": "red",
@@ -1528,7 +1538,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   },
                   {
                     "color": "red",
@@ -1544,7 +1555,7 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 23
+            "y": 39
           },
           "id": 126,
           "options": {
@@ -1632,7 +1643,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   },
                   {
                     "color": "red",
@@ -1648,7 +1660,7 @@
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 23
+            "y": 39
           },
           "id": 127,
           "options": {
@@ -1765,7 +1777,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   },
                   {
                     "color": "red",
@@ -1781,7 +1794,7 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 16
+            "y": 56
           },
           "id": 159,
           "interval": "1m",
@@ -1809,7 +1822,7 @@
                 "uid": "loki"
               },
               "editorMode": "code",
-              "expr": "sum(count_over_time({service_name=\"$service\"}\n    | level=\"info\"\n    | service_version=~\"$version\"\n[$__auto])) by (key_OriginalFormat_)",
+              "expr": "sum(count_over_time({service_name=\"$service\"}\n    | level=\"info\"\n    | service_version=~\"$version\"\n    | key_OriginalFormat_!=\"\"\n[$__auto])) by (key_OriginalFormat_)",
               "legendFormat": "{{key_OriginalFormat_}}",
               "queryType": "range",
               "refId": "A"
@@ -1872,7 +1885,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   },
                   {
                     "color": "red",
@@ -1888,7 +1902,7 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 16
+            "y": 56
           },
           "id": 160,
           "interval": "1m",
@@ -1916,7 +1930,7 @@
                 "uid": "loki"
               },
               "editorMode": "code",
-              "expr": "sum(count_over_time({service_name=\"$service\"}\n    | level=\"warning\"\n    | service_version=~\"$version\"\n[$__auto])) by (key_OriginalFormat_)",
+              "expr": "sum(count_over_time({service_name=\"$service\"}\n    | level=\"warning\"\n    | service_version=~\"$version\"\n    | key_OriginalFormat_!=\"\"\n[$__auto])) by (key_OriginalFormat_)",
               "legendFormat": "{{mt}}",
               "queryType": "range",
               "refId": "A"
@@ -1979,7 +1993,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   },
                   {
                     "color": "red",
@@ -1995,7 +2010,7 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 25
+            "y": 65
           },
           "id": 161,
           "interval": "1m",
@@ -2023,7 +2038,7 @@
                 "uid": "loki"
               },
               "editorMode": "code",
-              "expr": "sum(count_over_time({service_name=\"$service\"}\n    | level=\"error\"\n    | service_version=~\"$version\"\n[$__auto])) by (key_OriginalFormat_)",
+              "expr": "sum(count_over_time({service_name=\"$service\"}\n    | level=\"error\"\n    | service_version=~\"$version\"\n    | key_OriginalFormat_!=\"\"\n[$__auto])) by (key_OriginalFormat_)",
               "legendFormat": "{{mt}}",
               "queryType": "range",
               "refId": "A"
@@ -2086,7 +2101,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   },
                   {
                     "color": "red",
@@ -2102,7 +2118,7 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 25
+            "y": 65
           },
           "id": 162,
           "interval": "1m",
@@ -2130,7 +2146,7 @@
                 "uid": "loki"
               },
               "editorMode": "code",
-              "expr": "sum(count_over_time({service_name=\"$service\"}\n    | level=\"error\"\n    | service_version=~\"$version\"\n[$__auto])) by (exception_type)",
+              "expr": "sum(count_over_time({service_name=\"$service\"}\n    | level=\"error\"\n    | service_version=~\"$version\"\n    | key_OriginalFormat_!=\"\"\n[$__auto])) by (exception_type)",
               "legendFormat": "{{exception_type}}",
               "queryType": "range",
               "refId": "A"
@@ -2186,9 +2202,9 @@
       {
         "allValue": ".+",
         "current": {
-          "selected": false,
-          "text": "/ddev-fitness-challenge-tracker-web",
-          "value": "/ddev-fitness-challenge-tracker-web"
+          "selected": true,
+          "text": "frontend",
+          "value": "frontend"
         },
         "datasource": {
           "type": "prometheus",
@@ -2325,7 +2341,7 @@
     ]
   },
   "time": {
-    "from": "now-1h",
+    "from": "now-15m",
     "to": "now"
   },
   "timeRangeUpdatedDuringEditOrView": false,
