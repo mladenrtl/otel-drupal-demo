@@ -9,6 +9,7 @@ use Drupal\jsonapi\JsonApiResource\ResourceObject;
 use Drupal\jsonapi_extras\Plugin\ResourceFieldEnhancerBase;
 use Drupal\user\UserInterface;
 use GuzzleHttp\Exception\GuzzleException;
+use OpenTelemetry\API\Globals;
 use OpenTelemetry\API\Trace\Propagation\TraceContextPropagator;
 use OpenTelemetry\API\Trace\Span;
 use OpenTelemetry\API\Trace\SpanInterface;
@@ -140,9 +141,15 @@ class AuthorFieldEnhancer extends ResourceFieldEnhancerBase implements Container
       $options['headers'][$key] = $value;
     }
 
+    $tracerProvider = Globals::tracerProvider();
+    $tracer = $tracerProvider->getTracer('io.opentelemetry.contrib.php.drupal');
+
+    $span = $tracer->spanBuilder("my-span")->startSpan();
+
     \Drupal::logger('otel_demo')->info('Fetching user details for email: ' . $email);
 
     $userDetails = $httpClient->get("http://users.api:8080/users/{$email}", $options);
+    $span->end();
 
     return $userDetails->getBody()->getContents();
   }
