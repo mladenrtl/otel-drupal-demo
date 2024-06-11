@@ -618,32 +618,7 @@
               },
               "unit": "reqps"
             },
-            "overrides": [
-              {
-                "__systemRef": "hideSeriesFrom",
-                "matcher": {
-                  "id": "byNames",
-                  "options": {
-                    "mode": "exclude",
-                    "names": [
-                      "users.api - 200"
-                    ],
-                    "prefix": "All except:",
-                    "readOnly": true
-                  }
-                },
-                "properties": [
-                  {
-                    "id": "custom.hideFrom",
-                    "value": {
-                      "legend": false,
-                      "tooltip": false,
-                      "viz": true
-                    }
-                  }
-                ]
-              }
-            ]
+            "overrides": []
           },
           "gridPos": {
             "h": 8,
@@ -2227,9 +2202,9 @@
       {
         "allValue": ".+",
         "current": {
-          "selected": false,
-          "text": "Users.API",
-          "value": "Users.API"
+          "selected": true,
+          "text": "frontend",
+          "value": "frontend"
         },
         "datasource": {
           "type": "prometheus",
