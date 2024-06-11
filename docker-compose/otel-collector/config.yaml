@@ -20,6 +20,26 @@ processors:
       - key: cluster
         value: "docker-compose"
         action: upsert
+  attributes/http_backward_compatibility:
+    actions:
+      - key: http.response.status_code
+        from_attribute: http.status_code
+        action: upsert
+      - key: http.request.method
+        from_attribute: http.method
+        action: upsert
+  span/set_span_name_for_http_client:
+    name:
+      from_attributes:
+        - http.request.method
+        - server.address
+      separator: " "
+  span/set_span_name_for_http_server:
+    name:
+      from_attributes:
+        - http.request.method
+        - http.route
+      separator: " "
 
 exporters:
   otlphttp/metrics:
@@ -41,6 +61,9 @@ service:
       receivers: [otlp]
       processors:
         - attributes/cluster
+        - attributes/http_backward_compatibility
+        - span/set_span_name_for_http_server
+        - span/set_span_name_for_http_client
       exporters: [otlphttp/traces]
     metrics:
       receivers: [otlp,prometheus/collector]
