@@ -2,6 +2,8 @@
 
 Welcome to our OpenTelemetry Demo project! This README provides an overview of the project structure, components, and how to get started.
 
+![diagram.jpg](diagram.jpg)
+
 ## Overview
 
 This project consists of two main parts:
@@ -23,22 +25,11 @@ Before you start, ensure you have the following tools installed:
 
 - **Description**: Drupal is a popular open-source content management system (CMS) for building websites and web applications.
 - **Tools**: DDEV (local development environment for Drupal), Composer (dependency manager for PHP).
-- **Commands**:
-  - `make start-ddev`: Start the DDEV environment.
-  - `make composer-install`: Install Drupal dependencies using Composer.
-  - `make create-ddev`: Create a new Drupal project.
-  - `make restart-ddev`: Restart the DDEV environment.
-  - `make stop-ddev`: Stop the DDEV environment.
 
 ### UserAPI and Frontend with Tempo, Grafana, Loki, and Prometheus
 
 - **Description**: UserAPI is a .NET web API providing backend functionality, and the Frontend is a Next.js application serving as the user interface. Tempo is used for distributed tracing, Grafana for visualization, Loki for log aggregation, and Prometheus for monitoring.
 - **Tools**: Docker Compose, .NET (for UserAPI), Next.js (for Frontend), Tempo, Grafana, Loki, Prometheus.
-- **Commands**:
-  - `make start-docker-compose`: Start Docker Compose services.
-  - `make stop-docker-compose`: Stop Docker Compose services.
-  - `make restart-project`: Restart the entire project (DDEV and Docker Compose).
-  - `make stop-project`: Stop both DDEV and Docker Compose services.
 
 ## Getting Started
 
@@ -81,3 +72,22 @@ To create and run a test script:
 1. Create a new test script in the `k6-tests` directory.
 2. Change the command of the k6 service in the `docker-compose.yml` file to run the new test script.
 3. Run the k6 test with `make k6-test`.
+
+## Useful Commands
+
+### Drupal in DDEV
+
+- **Commands**:
+  - `make start-ddev`: Start the DDEV environment.
+  - `make composer-install`: Install Drupal dependencies using Composer.
+  - `make create-ddev`: Create a new Drupal project.
+  - `make restart-ddev`: Restart the DDEV environment.
+  - `make stop-ddev`: Stop the DDEV environment.
+
+### UserAPI and Frontend with Tempo, Grafana, Loki, and Prometheus
+
+- **Commands**:
+  - `make start-docker-compose`: Start Docker Compose services.
+  - `make stop-docker-compose`: Stop Docker Compose services.
+  - `make restart-project`: Restart the entire project (DDEV and Docker Compose).
+  - `make stop-project`: Stop both DDEV and Docker Compose services.
