@@ -1,0 +1,5 @@
+services:
+  otel_demo.content_import.commands:
+    class: Drupal\otel_demo\Commands\ContentImportCommands
+    tags:
+      - { name: drush.command }
